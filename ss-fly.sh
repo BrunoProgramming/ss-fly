@@ -277,10 +277,10 @@ check_dependency() {
         case $os in
                 'ubuntu'|'debian')
                 apt-get -y update
-                apt-get -y install python python-dev python-setuptools openssl libssl-dev curl wget unzip gcc automake autoconf make libtool
+                apt-get -y install python3 python3-dev python3-setuptools openssl libssl-dev curl wget unzip gcc automake autoconf make libtool
                 ;;
                 'centos')
-                yum install -y python python-devel python-setuptools openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
+                yum install -y python3 python3-devel python3-setuptools openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
         esac
 }
 
@@ -423,7 +423,7 @@ install() {
                 exit 1
         fi
         cd ${DIR}/shadowsocks-master
-        python setup.py install --record /usr/local/shadowsocks_install.log
+        python3 setup.py install --record /usr/local/shadowsocks_install.log
         if [ -f /usr/bin/ssserver ] || [ -f /usr/local/bin/ssserver ]
         then
                 cp $fly_dir/ss-fly /etc/init.d/
